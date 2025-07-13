@@ -1,6 +1,6 @@
 # ComfyUI Performance Boosters for NVIDIA RTX 5000 Series (Windows) ✨
 
-This repository is dedicated to helping [ComfyUI](https://github.com/comfyanonymous/ComfyUI), [Fooocus](https://github.com/lllyasviel/Fooocus), [FramePack](https://github.com/lllyasviel/FramePack) users on **Windows** significantly enhance their AI workflow efficiency. It offers **pre-compiled acceleration packages** such as **xformers**, **Flash Attention**, and **SageAttention**, along with **detailed installation guides**.
+This repository is dedicated to helping [ComfyUI](https://github.com/comfyanonymous/ComfyUI), [Fooocus](https://github.com/lllyasviel/Fooocus), [FramePack](https://github.com/lllyasviel/FramePack) users on **Windows** significantly enhance their AI workflow efficiency. It offers **pre-compiled acceleration packages** such as [**xformers**](https://github.com/facebookresearch/xformers), [**Flash Attention**](https://github.com/Dao-AILab/flash-attention), and [**SageAttention**](https://github.com/woct0rdho/SageAttention), along with **detailed installation guides**.
 
 ---
 
@@ -34,12 +34,12 @@ If you're running ComfyUI on Windows with an **NVIDIA RTX 5000 series GPU** and 
 
 There are generally three straightforward ways to deploy applications like ComfyUI, Fooocus, and FramePack. While their setup processes are quite similar, a common challenge arises with their bundled Python environments: cannot change the version of Python in their `python_embedded' folders.
 
-1.  **Portable Version (Download & Unpack):**
+**Method 1:**  **Portable Version (Download & Unpack):**
     This method involves downloading and extracting a portable version of these applications. Each portable version comes with its own embedded Python environment, which might not always align with Python 3.12.x and would require installing accelerators from their respective repositories.
 
-    * **Fooocus:** Typically includes **Python 3.10.9** and **Torch 2.1.0+cu121**. This version **Torch does not work** with the NVIDIA RTX 5000 series.
-    * **FramePack:** Usually comes with **Python 3.10.6** and **Torch 2.6.0+cu126**. This version **Torch does not work** with the NVIDIA RTX 5000 series.
-    * **ComfyUI:** The latest version, **v0.3.44**, includes **Python 3.12.10** and **Torch 2.7.1+cu128**, which **fully meets our requirements** for NVIDIA RTX 5000 series compatibility.
+* **Fooocus:** Typically includes **Python 3.10.9** and **Torch 2.1.0+cu121**. This version **Torch does not work** with the NVIDIA RTX 5000 series.
+* **FramePack:** Usually comes with **Python 3.10.6** and **Torch 2.6.0+cu126**. This version **Torch does not work** with the NVIDIA RTX 5000 series.
+* **ComfyUI:** The latest version, **v0.3.44**, includes **Python 3.12.10** and **Torch 2.7.1+cu128**, which **fully meets our requirements** for NVIDIA RTX 5000 series compatibility.
 
 ---
 
@@ -144,3 +144,35 @@ This is the **recommended approach** for managing multiple AI applications. It i
     (venv) X:\ComfyUI_Git>
     ```
     This indicates that all subsequent package installations will be isolated to this virtual environment, specifically for the `ComfyUI` application in this example. The same logic applies to other applications like Fooocus or FramePack, with their own dedicated virtual environments.
+
+---
+
+## Launch Files
+
+In the portable version, after unpacking, there are *.bat files for launching programs. When cloning, these are absent, so you need to create your own `run.bat` file next to the `venv` folder and the cloned program's folder, in the following format:
+
+**Fooocus:**
+```bat
+@echo off
+call .\venv\Scripts\activate.bat
+python .\Fooocus\entry_with_update.py --theme dark
+pause
+```
+**FramePack:**
+```bat
+@echo off
+call .\venv\Scripts\activate.bat
+python .\FramePack\demo_gradio_f1.py --server 127.0.0.1 --inbrowser
+pause
+```
+**ComfyUI:**
+```bat
+@echo off
+call .\venv\Scripts\activate.bat
+python .\ComfyUI\main.py --auto-launch
+pause
+```
+
+ You can add all other launch arguments yourself according to your needs.
+ 
+---
