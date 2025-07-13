@@ -116,7 +116,7 @@ This is the **recommended approach** for managing multiple AI applications. It i
 1.  **Create a Project Folder:**
     First, create a new folder for your application (e.g., `Fooocus_Git`, `FramePack_Git`, `ComfyUI_Git`). It's best to place this folder in the root of a fast drive (e.g., `D:\ComfyUI_Git`).
 2.  **Clone the Application Repository:**
-    Open your console (cmd) within the newly cloned application folder (e.g., `X:\ComfyUI_Git`). Navigate into this newly created folder using your command line, and then clone the desired application from its official GitHub repository:
+    Open the console (cmd) in the newly created application folder (for example, X:\ComfyUI_Git), and then clone the desired application from its official GitHub repository:
     * For Fooocus:
         ```bash
         git clone https://github.com/lllyasviel/Fooocus.git
