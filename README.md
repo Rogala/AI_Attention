@@ -62,6 +62,7 @@ First, you need to open a command prompt (cmd) directly within the `python_embed
 
 ### Updating Torch
 
+For the 5000 series, you need to install Torch version 2.7.0 or higher, compiled with CUDA 128.
 Once the console is open in the correct folder, execute the following two commands in sequence:
 
 1.  **Upgrade pip (the package installer):**
@@ -74,7 +75,7 @@ Once the console is open in the correct folder, execute the following two comman
     ```bash
     .\python.exe -m pip install --upgrade torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu128
     ```
-    This command will download and install the latest versions of **Torch**, **torchvision** (for computer vision utilities), and **torchaudio** (for audio utilities) that are compiled for **CUDA 12.8**. The `--extra-index-url` specifies the official PyTorch wheel index for CUDA 12.8 builds, ensuring you get the correct versions for your RTX 5000 series GPU.
+    This command will download and install the latest versions (currently it is 2.7.1, to install another version, you need to register its revision **torch==2.7.0**) of **Torch**, **torchvision** (for computer vision utilities), and **torchaudio** (for audio utilities) that are compiled for **CUDA 12.8**. The `--extra-index-url` specifies the official PyTorch wheel index for CUDA 12.8 builds, ensuring you get the correct versions for your RTX 5000 series GPU.
 
 After successfully running these commands, your Fooocus and FramePack installations should have updated Torch versions, enabling proper functionality with your NVIDIA RTX 5000 series graphics card.
 
@@ -175,4 +176,105 @@ pause
 
  You can add all other launch arguments yourself according to your needs.
  
+---
+
+## Installing xformers 🚀
+
+To install `xformers` for Fooocus, FramePack, or ComfyUI, execute the following commands in the console, depending on your version:
+
+### For the portable version:
+
+Open the console in your program's `python_embedded` folder and execute:
+
+```bash
+.\python.exe -m pip install -U xformers --index-url https://download.pytorch.org/whl/cu128
+````
+
+### For the cloned version:
+
+Ensure you have **activated your virtual environment**, then execute:
+
+```bash
+pip install -U xformers --index-url https://download.pytorch.org/whl/cu128
+```
+
+### Important notes regarding Torch and xformers versions:
+
+  * If your **Torch version is 2.7.0**, install `xformers` with a specific version:
+    ```bash
+    pip install -U xformers==0.0.30 --index-url https://download.pytorch.org/whl/cu128
+    ```
+* For **Torch 2.7.1 and higher**, you can omit the `xformers` version (as shown in the commands above), as a compatible latest version will be installed.
+* To download my version of `xformers', make sure you get the link from the folder corresponding to your version of Torch.
+
+---
+
+## Installing FlashAttention (for FramePack and ComfyUI only) 🚀
+
+**Note:** Fooocus does not support FlashAttention or SageAttention, so these instructions are only for FramePack and ComfyUI.
+
+To install FlashAttention for FramePack or ComfyUI, execute the following commands in the console:
+
+### For the portable version:
+
+```bash
+.\python.exe -m pip install https://huggingface.co/lldacing/flash-attention-windows-wheel/resolve/main/flash_attn-2.7.4.post1%2Bcu128torch2.7.0cxx11abiFALSE-cp312-cp312-win_amd64.whl
+````
+
+### For the cloned version:
+
+```bash
+pip install https://huggingface.co/lldacing/flash-attention-windows-wheel/resolve/main/flash_attn-2.7.4.post1%2Bcu128torch2.7.0cxx11abiFALSE-cp312-cp312-win_amd64.whl
+```
+
+* This version works with both Torch 2.7.0 and 2.7.1.
+* To download my version of `FlashAttention', make sure you get the link from the folder corresponding to your version of Torch.
+
+---
+
+## Installing Triton (Prerequisite for SageAttention) 🛠️
+
+Before installing SageAttention, you must install Triton. The aim of Triton is to provide an open-source environment to write fast code with higher productivity than CUDA, but also with higher flexibility than other existing DSLs.
+
+### For the portable version:
+
+```bash
+.\python.exe -m pip install -U triton-windows
+```
+
+### For the cloned version:
+
+```bash
+pip install -U triton-windows
+```
+---
+
+## Installing SageAttention (for FramePack and ComfyUI only) 🚀
+
+To install SageAttention for FramePack or ComfyUI, execute the following commands in the console:
+
+### For the portable version:
+
+```bash
+.\python.exe -m pip install https://github.com/woct0rdho/SageAttention/releases/download/v2.2.0-windows/sageattention-2.2.0+cu128torch2.7.1-cp312-cp312-win_amd64.whl
+```
+
+### For the cloned version:
+
+```bash
+pip install https://github.com/woct0rdho/SageAttention/releases/download/v2.2.0-windows/sageattention-2.2.0+cu128torch2.7.1-cp312-cp312-win_amd64.whl
+```
+
+* [If you need a different version, you can find it in the list here:](https://github.com/woct0rdho/SageAttention/releases)
+* To download my version of `SageAttention', make sure you get the link from the folder corresponding to your version of Torch.
+---
+
+## Benchmarking Tools 📊
+
+The `bench` folder contains three tests that allow you to verify the functionality of all installed components:
+
+* **`environment.py`**: Displays information about your system and installed packages.
+* **`fp32-16-8-4_bf16_gpt-bench.py`**: Runs a system benchmark with various parameters for Torch, xformers, and FlashAttention.
+* **`sa-fa_gpt.py`**: Compares SageAttention and FlashAttention where applicable.
+
 ---
