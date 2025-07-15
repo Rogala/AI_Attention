@@ -1,4 +1,4 @@
-# ComfyUI Performance Boosters for NVIDIA RTX 5000 Series (Windows) ✨
+# ComfyUI, Fooocus, FramePack Performance Boosters for NVIDIA RTX 5000 Series (Windows) ✨
 
 This repository is dedicated to helping [ComfyUI](https://github.com/comfyanonymous/ComfyUI), [Fooocus](https://github.com/lllyasviel/Fooocus), [FramePack](https://github.com/lllyasviel/FramePack) users on **Windows** significantly enhance their AI workflow efficiency. It offers **pre-compiled acceleration packages** such as [**xformers**](https://github.com/facebookresearch/xformers), [**Flash Attention**](https://github.com/Dao-AILab/flash-attention), and [**SageAttention**](https://github.com/woct0rdho/SageAttention), along with **detailed installation guides**.
 
