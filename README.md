@@ -8,7 +8,7 @@ This repository is dedicated to helping [ComfyUI](https://github.com/comfyanonym
 
 ## What's Inside?
 
-* **Optimized Attention Packages:** Directly downloadable, self-compiled versions of leading attention optimizers for ComfyUI.
+* **Optimized Attention Packages:** Directly downloadable, self-compiled versions of leading attention optimizers for ComfyUI, Fooocus, FramePack.
     * **xformers:** A library providing highly optimized attention mechanisms.
     * **Flash Attention:** Designed for ultra-fast attention computations.
     * **SageAttention:** Another powerful tool for accelerating attention.
