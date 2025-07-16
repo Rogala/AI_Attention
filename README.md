@@ -1,12 +1,14 @@
-# ComfyUI Performance Boosters for NVIDIA RTX 5000 Series (Windows) ✨
+# ComfyUI, Fooocus, FramePack Performance Boosters for NVIDIA RTX 5000 Series (Windows) ✨
 
 This repository is dedicated to helping [ComfyUI](https://github.com/comfyanonymous/ComfyUI), [Fooocus](https://github.com/lllyasviel/Fooocus), [FramePack](https://github.com/lllyasviel/FramePack) users on **Windows** significantly enhance their AI workflow efficiency. It offers **pre-compiled acceleration packages** such as [**xformers**](https://github.com/facebookresearch/xformers), [**Flash Attention**](https://github.com/Dao-AILab/flash-attention), and [**SageAttention**](https://github.com/woct0rdho/SageAttention), along with **detailed installation guides**.
+
+***If you need to upgrade to other versions of Nvidia graphics cards or a different version of Python or Torch, use the links to the official project pages***
 
 ---
 
 ## What's Inside?
 
-* **Optimized Attention Packages:** Directly downloadable, self-compiled versions of leading attention optimizers for ComfyUI.
+* **Optimized Attention Packages:** Directly downloadable, self-compiled versions of leading attention optimizers for ComfyUI, Fooocus, FramePack.
     * **xformers:** A library providing highly optimized attention mechanisms.
     * **Flash Attention:** Designed for ultra-fast attention computations.
     * **SageAttention:** Another powerful tool for accelerating attention.
@@ -234,7 +236,7 @@ pip install https://huggingface.co/lldacing/flash-attention-windows-wheel/resolv
 
 ## Installing Triton (Prerequisite for SageAttention) 🛠️
 
-Before installing SageAttention, you must install Triton. The aim of Triton is to provide an open-source environment to write fast code with higher productivity than CUDA, but also with higher flexibility than other existing DSLs.
+Before installing SageAttention, you must install [Triton](https://github.com/woct0rdho/triton-windows). The aim of Triton is to provide an open-source environment to write fast code with higher productivity than CUDA, but also with higher flexibility than other existing DSLs.
 
 ### For the portable version:
 
@@ -269,6 +271,44 @@ pip install https://github.com/woct0rdho/SageAttention/releases/download/v2.2.0-
 * To download my version of `SageAttention', make sure you get the link from the folder corresponding to your version of Torch.
 ---
 
+## Launch Flags for Fooocus, FramePack, and ComfyUI 🚀
+
+This section details how different attention mechanisms are handled by each application and any specific flags you might need to use in their respective `run.bat` files.
+
+### Fooocus
+
+**Fooocus automatically works with an installed `xformers` library.** You don't need any special flags to enable it. However, if you wish to **disable `xformers`**, you can do so by adding the following flag to your `run.bat` file:
+
+```bat
+--disable-xformers
+```
+
+### FramePack
+
+**FramePack also automatically utilizes installed `xformers`, FlashAttention, and SageAttention.** No specific flags are required in your `run.bat` file for these to function.
+
+### ComfyUI
+
+**ComfyUI automatically works with `xformers` when installed.** If you need to **disable `xformers`** for ComfyUI, add this flag to its `run.bat` file:
+
+```bat
+--disable-xformers
+```
+
+For **FlashAttention**, you need to **explicitly activate it** in ComfyUI's `run.bat` file. Crucially, if you use FlashAttention, you **must disable `xformers`**, as `xformers` has its own built-in FlashAttention code, and they are not designed to work concurrently.
+
+To activate FlashAttention:
+
+```bat
+--use-flash-attention
+```
+
+Conversely, **SageAttention can operate in parallel with `xformers`** in ComfyUI. To activate SageAttention, add this to your `run.bat` file:
+
+```bat
+--use-sage-attention
+```
+---
 ## Benchmarking Tools 📊
 
 The `bench` folder contains three tests that allow you to verify the functionality of all installed components:
