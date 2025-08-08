@@ -241,13 +241,23 @@ Before installing SageAttention, you must install [Triton](https://github.com/wo
 ### For the portable version:
 
 ```bash
-.\python.exe -m pip install -U triton-windows
+.\python.exe -m pip install -U triton-windows==3.3.1
 ```
 
 ### For the cloned version:
 
 ```bash
-pip install -U triton-windows
+pip install -U triton-windows==3.3.1
+```
+
+### For the PyTorch 2.8.0:
+
+```bash
+.\python.exe -m pip install -U triton-windows==3.4.0
+```
+or
+```bash
+pip install -U triton-windows==3.4.0
 ```
 ---
 
