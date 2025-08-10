@@ -332,4 +332,5 @@ The `bench` folder contains three tests that allow you to verify the functionali
 * SDXL sd_xl_base_1.0_0.9vae.safetensors, steps 20, 1024x1024, euler+normal
 * Flux flux1-dev-fp8.safetensors, steps 20, 1024x1024, euler+simple
 * Qwen qwen-image-Q5_K_M.gguf + qwen_2.5_vl_7b_fp8_scaled.safetensors, steps 20, 1328x1328, euler+simple
-<img width="1189" height="574" alt="Speed of operation with a standard workflow in seconds" src="https://github.com/user-attachments/assets/32017325-47da-499f-8df7-a5f226985090" />
+<img width="1337" height="574" alt="Speed of operation with a standard workflow in seconds" src="https://github.com/user-attachments/assets/393e9078-65ee-4fdd-a1f4-672ca4da2c4d" />
+
