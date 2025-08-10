@@ -328,3 +328,8 @@ The `bench` folder contains three tests that allow you to verify the functionali
 * **`sa-fa_gpt.py`**: Compares SageAttention and FlashAttention where applicable.
 
 ---
+## Speed of operation with a standard workflow in seconds with ComfyUI
+* SDXL sd_xl_base_1.0_0.9vae.safetensors, steps 20, 1024x1024, euler+normal
+* Flux flux1-dev-fp8.safetensors, steps 20, 1024x1024, euler+simple
+* Qwen qwen-image-Q5_K_M.gguf + qwen_2.5_vl_7b_fp8_scaled.safetensors, steps 20, 1328x1328, euler+simple
+<img width="1189" height="574" alt="Speed of operation with a standard workflow in seconds" src="https://github.com/user-attachments/assets/32017325-47da-499f-8df7-a5f226985090" />
