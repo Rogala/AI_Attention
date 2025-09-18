@@ -23,7 +23,7 @@ This repository is dedicated to helping [ComfyUI](https://github.com/comfyanonym
 * **Operating System:** Windows.
 * **Python:** The compilation process used **Python 3.12.10**. For optimal compatibility, it's recommended to use **Python 3.12.x**.
 * **Compilation Tools:** The builds were created using **CUDA Toolkit 12.8** and **Visual Studio 2022**.
-
+* **Added new compilation branch:** **Python 3.13.x** and **Cuda Toolkit 12.9** and **Pytorch 2.8**.
 ---
 
 ## Why Use This?
