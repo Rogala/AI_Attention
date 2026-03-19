@@ -64,7 +64,7 @@ flowchart TD
     O --> P[Оновлення Pip]
     P --> I
 	
-<hr style="height:10px; background-color:black; border:none;">
+---
 
 ## 🇬🇧 Description (English)
 
