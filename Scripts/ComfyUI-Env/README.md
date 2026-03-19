@@ -41,7 +41,7 @@
 ---
 
 ## 🛠 Flow Diagram (Українська)
-```markdown
+
 ```mermaid
 flowchart TD
     A[Запуск скрипта через ComfyUI-Env.bat] --> B{Чи існує папка venv?}
@@ -67,6 +67,7 @@ flowchart TD
     N --> O[Створення нового venv]
     O --> P[Оновлення Pip]
     P --> I
+```
 
 ---
 
@@ -114,7 +115,6 @@ It simplifies managing Python, venv, Git, and Microsoft Visual C++ Runtime.
 
 ## 🛠 Flow Diagram (English)
 
-```markdown
 ```mermaid
 flowchart TD
     A[Start Script via ComfyUI-Env.bat] --> B{Does venv folder exist?}
