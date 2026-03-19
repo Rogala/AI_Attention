@@ -34,6 +34,8 @@
 - Summary report показує реально встановлені версії Python, Git, VC++ та Pip.  
 - Стару версію Python видаляє автоматично, якщо існує файл `python_version.txt`.  
 
+---
+
 ## 🛠 ComfyUI Runtime Environment Manager – Повний Flow (Українська)
 
 ```mermaid
@@ -61,7 +63,8 @@ flowchart TD
     N --> O[Створення нового venv]
     O --> P[Оновлення Pip]
     P --> I
----
+	
+<hr style="height:10px; background-color:black; border:none;">
 
 ## 🇬🇧 Description (English)
 
