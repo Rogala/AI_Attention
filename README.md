@@ -195,20 +195,4 @@ Official repository: [Dao-AILab/flash-attention](https://github.com/Dao-AILab/fl
 
 ---
 
-## Benchmarking Tools 📊
 
-The `bench` folder contains tests to verify your installation:
-
-- **`environment.py`** — displays system info and installed package versions.
-- **`fp32-16-8-4_bf16_gpt-bench.py`** — benchmarks Torch, xFormers, and Flash Attention.
-- **`sa-fa_gpt.py`** — compares SageAttention and Flash Attention performance.
-
----
-
-## Benchmark Results with ComfyUI (seconds per generation)
-
-- SDXL `sd_xl_base_1.0_0.9vae.safetensors` — steps 20, 1024×1024, euler+normal
-- Flux `flux1-dev-fp8.safetensors` — steps 20, 1024×1024, euler+simple
-- Qwen `qwen-image-Q5_K_M.gguf` + `qwen_2.5_vl_7b_fp8_scaled.safetensors` — steps 20, 1328×1328, euler+simple
-
-<img width="1337" height="574" alt="Speed of operation with a standard workflow in seconds" src="https://github.com/user-attachments/assets/393e9078-65ee-4fdd-a1f4-672ca4da2c4d" />
