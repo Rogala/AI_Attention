@@ -151,7 +151,12 @@ pip install <path-to-xformers-wheel>.whl
 Or install directly from PyTorch index:
 
 ```bash
-pip install -U xformers --index-url https://download.pytorch.org/whl/cu128
+# [linux & win] cuda 12.6 version
+pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu126
+# [linux & win] cuda 12.8 version
+pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu128
+# [linux & win] cuda 13.0 version
+pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu130
 ```
 
 ### Verify Installation
@@ -170,30 +175,40 @@ python -m xformers.info
 
 ---
 
-## 4. Flash Attention
+## 4. Flash Attention *(довідково)*
 
 Official repository: [Dao-AILab/flash-attention](https://github.com/Dao-AILab/flash-attention)
 
-> ⚠️ **Flash Attention currently does not work with the Python 3.14 branch.**
-> In general, Flash Attention is extremely difficult to compile on Windows and for Blackwell (SM120). Use SageAttention instead for the best results on RTX 5000 Series.
-
-### Installation
-
-```bash
-pip install <path-to-flash-attention-wheel>.whl
-```
-
-Download the wheel from the folder matching your Torch version.
+> ⚠️ **Готових білдів під Windows у цьому репозиторії немає і не планується.**
+>
+> Flash Attention вкрай складно скомпілювати під Windows і особливо під Blackwell (SM120). Також наразі **не працює з Python 3.14**.
+>
+> Якщо все ж потрібен — шукайте сторонні білди на GitHub або HuggingFace. Рекомендована альтернатива для RTX 5000 Series — **SageAttention**.
 
 ### ComfyUI Launch Flag
 
 ```
---use-flash-attention
+--use-flash-attention --disable-xformers
 ```
 
-> ⚠️ If you enable Flash Attention in ComfyUI, you **must disable xFormers**, as they are not designed to run together:
-> ```
-> --use-flash-attention --disable-xformers
-> ```
+> При увімкненому Flash Attention xFormers потрібно обов'язково вимкнути — вони не призначені для спільної роботи.
 
 ---
+
+## Benchmarking Tools 📊
+
+The `bench` folder contains tests to verify your installation:
+
+- **`environment.py`** — displays system info and installed package versions.
+- **`fp32-16-8-4_bf16_gpt-bench.py`** — benchmarks Torch, xFormers, and Flash Attention.
+- **`sa-fa_gpt.py`** — compares SageAttention and Flash Attention performance.
+
+---
+
+## Benchmark Results with ComfyUI (seconds per generation)
+
+- SDXL `sd_xl_base_1.0_0.9vae.safetensors` — steps 20, 1024×1024, euler+normal
+- Flux `flux1-dev-fp8.safetensors` — steps 20, 1024×1024, euler+simple
+- Qwen `qwen-image-Q5_K_M.gguf` + `qwen_2.5_vl_7b_fp8_scaled.safetensors` — steps 20, 1328×1328, euler+simple
+
+<img width="1337" height="574" alt="Speed of operation with a standard workflow in seconds" src="https://github.com/user-attachments/assets/393e9078-65ee-4fdd-a1f4-672ca4da2c4d" />
