@@ -17,8 +17,8 @@ Packages available:
 |---|---|
 | **GPU** | NVIDIA RTX 5000 Series (Blackwell, SM120) |
 | **OS** | Windows |
-| **Python** | 3.12 → 3.14 |
-| **PyTorch + CUDA** | 2.7.0+cu128 → 2.10.x+cu130 *(current, changes over time)* |
+| **Python** | 3.10 → 3.14 |
+| **PyTorch + CUDA** | 2.7.0+cu128 → 2.11.x+cu130 *(current, changes over time)* |
 
 > Builds are organized in folders by Torch version. Always pick the folder that matches your installed Torch.
 
