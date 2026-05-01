@@ -1,8 +1,4 @@
----
-
-*Target compute capabilities: {'7.5', '10.0', '8.6', '8.9', '8.0', '12.0', '9.0'}*
-
----
+# *Target compute capabilities: {'7.5', '10.0', '8.6', '8.9', '8.0', '12.0', '9.0'}*
 
 ```
 sage_2-3_test.py
